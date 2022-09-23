@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="38f68616-e672-434c-87e7-8bfc76c1f799" ChangeDateTime="01/14/2021 20:14:20">
+    <Property Name="ElementName" Value="[dbo].[TV_D_CONTENIDO].[OPACIDAD_BARRA_TEXTO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_CONTENIDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ES_REPETITIVO" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0ef89fb5-c3c9-46c8-bf63-65de208147a9" ChangeDateTime="01/20/2021 01:14:48">
+    <Property Name="ElementName" Value="[dbo].[TV_R_PREVIEW_TEMPLATE].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_R_PREVIEW_TEMPLATE]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID_PREVIEW" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="298ac248-064c-4f4c-8adc-b7300fc71bf6" ChangeDateTime="08/04/2022 15:25:12">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[ID_REPOSITORIO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NOMBRE_REPRODUCTOR" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="02be6c4f-2c71-46a1-9cae-39abf25a9873" ChangeDateTime="08/04/2022 15:25:42">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[ID_MENSAJE]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="REPRODUCTOR" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5512fb36-4b15-4615-b297-323909a9995a" ChangeDateTime="08/04/2022 15:25:49">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[NOMBRE_REPRODUCTOR]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NOMBRE_CONTENIDO" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d262c31b-5488-45a7-b7ee-f15434812413" ChangeDateTime="08/04/2022 15:27:54">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[ID_TABLA]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="USUARIO" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="09fc35d6-a9ad-4bd9-87aa-24d8944432f6" ChangeDateTime="08/04/2022 15:28:25">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[ID_TIPO_CANAL]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FEC_ENVIO" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a525a736-528d-49da-85a3-a2caf8baba3f" ChangeDateTime="08/04/2022 15:29:05">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[RUTA]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VELOCIDAD" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3496303a-badb-45bb-b4ea-41eea4c8f4f4" ChangeDateTime="08/04/2022 15:29:18">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[NOMBRE]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PESO" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d3bfff0c-3f71-4a0b-90d5-d259c22c7ed2" ChangeDateTime="08/04/2022 15:39:29">
+    <Property Name="ElementName" Value="[dbo].[TV_D_ENVIO].[DURACION_SEG]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TV_D_ENVIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="COMPLETADO" />
+  </Operation>
+</Operations>

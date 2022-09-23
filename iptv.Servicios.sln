@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iptv.Servicios", "iptv.Servicios\iptv.Servicios.csproj", "{526F25D1-D55C-41FF-B2AD-9FD2D546BBF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{115A5DCC-2A2E-491D-88DC-19171C7E234C} = {115A5DCC-2A2E-491D-88DC-19171C7E234C}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iptv.AccesoDatos", "iptv.AccesoDatos\iptv.AccesoDatos.csproj", "{FF606AB9-88F8-4A41-85B0-BC4999119821}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iptv.Negocio", "iptv.Negocio\iptv.Negocio.csproj", "{115A5DCC-2A2E-491D-88DC-19171C7E234C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FF606AB9-88F8-4A41-85B0-BC4999119821} = {FF606AB9-88F8-4A41-85B0-BC4999119821}
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IPTV", "IPTV\IPTV.sqlproj", "{438AC43B-D103-4223-9456-F2CC97A93BCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{526F25D1-D55C-41FF-B2AD-9FD2D546BBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526F25D1-D55C-41FF-B2AD-9FD2D546BBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526F25D1-D55C-41FF-B2AD-9FD2D546BBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526F25D1-D55C-41FF-B2AD-9FD2D546BBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF606AB9-88F8-4A41-85B0-BC4999119821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF606AB9-88F8-4A41-85B0-BC4999119821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF606AB9-88F8-4A41-85B0-BC4999119821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF606AB9-88F8-4A41-85B0-BC4999119821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{115A5DCC-2A2E-491D-88DC-19171C7E234C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115A5DCC-2A2E-491D-88DC-19171C7E234C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115A5DCC-2A2E-491D-88DC-19171C7E234C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115A5DCC-2A2E-491D-88DC-19171C7E234C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438AC43B-D103-4223-9456-F2CC97A93BCD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97214C60-C436-4F24-8185-7B28638431A7}
+	EndGlobalSection
+EndGlobal

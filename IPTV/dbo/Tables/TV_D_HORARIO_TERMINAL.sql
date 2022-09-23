@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[TV_D_HORARIO_TERMINAL]
+(
+	[IdTvHorarioTerminal] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[horaEncendio] TIME NOT NULL DEFAULT '00:00:00',
+	[horaApagado] TIME NOT NULL DEFAULT '00:00:00',
+	[IdEstatus]  BIT NOT NULL DEFAULT 1, 
+	[fechaAlta] DATETIME NOT NULL DEFAULT GETDATE(),
+	[fechaModificacion] DATETIME NULL ,
+	[usuario] NVARCHAR(30)  NULL DEFAULT 'Admin',
+)

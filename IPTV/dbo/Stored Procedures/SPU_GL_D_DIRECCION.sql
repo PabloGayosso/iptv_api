@@ -1,0 +1,45 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Actualiza los campos de un registro en especifico de la tabla GL_D_DIRECCION
+-- =============================================
+CREATE PROCEDURE [dbo].[SPU_GL_D_DIRECCION]
+    @ID_DIRECCION INT
+    ,@ID_TIPO_DIRECCION INT
+    ,@ID_PAIS INT
+    ,@ID_ESTADO INT
+    ,@ID_DELEG_MUNICIPIO INT
+    ,@ID_COLONIA INT
+    ,@CODIGO_POSTAL VARCHAR(10)
+    --,@CIUDAD VARCHAR(250)
+    ,@CALLE VARCHAR(250)
+    ,@NUMERO_EXTERIOR VARCHAR(50)
+    ,@NUMERO_INTERIOR VARCHAR(50)
+    ,@ID_ESTATUS INT
+    --,@FEC_ALTA DATETIME
+    --,@FEC_MOD DATETIME
+    ,@USUARIO VARCHAR(30)
+AS
+BEGIN
+  SET NOCOUNT ON
+  UPDATE GL_D_DIRECCION SET
+    ID_TIPO_DIRECCION = @ID_TIPO_DIRECCION
+    ,ID_PAIS = @ID_PAIS
+    ,ID_ESTADO = @ID_ESTADO
+    ,ID_DELEG_MUNICIPIO = @ID_DELEG_MUNICIPIO
+    ,ID_COLONIA = @ID_COLONIA
+    ,CODIGO_POSTAL = @CODIGO_POSTAL
+    --,CIUDAD = @CIUDAD
+    ,CALLE = @CALLE
+    ,NUMERO_EXTERIOR = @NUMERO_EXTERIOR
+    ,NUMERO_INTERIOR = @NUMERO_INTERIOR
+    ,ID_ESTATUS = @ID_ESTATUS
+    --,FEC_ALTA = @FEC_ALTA
+    ,FEC_MOD = GETDATE()--@FEC_MOD
+    ,USUARIO = @USUARIO
+  WHERE
+      ID_DIRECCION = @ID_DIRECCION
+  SET NOCOUNT OFF
+END
+

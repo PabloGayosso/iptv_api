@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[TV_R_CAD] (
+    [ID_CAD]          INT           NOT NULL,
+    [ID_REPRODUCTOR]  INT           NOT NULL,
+    [ID_ESTATUS]      INT           NOT NULL,
+    [IP_SERVIDOR]     VARCHAR (50)  NOT NULL,
+    [PUERTO_SERVIDOR] NVARCHAR (10) NOT NULL,
+    CONSTRAINT [PK_TV_R_CAD] PRIMARY KEY CLUSTERED ([ID_CAD] ASC)
+);
+

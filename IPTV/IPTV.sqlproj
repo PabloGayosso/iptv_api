@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>IPTV</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{438ac43b-d103-4223-9456-f2cc97a93bcd}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>IPTV</RootNamespace>
+    <AssemblyName>IPTV</AssemblyName>
+    <ModelCollation>3082,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TV_R_GRUPO_REPRODUCTOR.sql" />
+    <Build Include="dbo\Tables\GL_C_APLICACION_IST.sql" />
+    <Build Include="dbo\Tables\GL_C_COLONIA.sql" />
+    <Build Include="dbo\Tables\GL_D_PERSONA.sql" />
+    <Build Include="dbo\Tables\GL_C_DELEG_MUNICIPIO.sql" />
+    <Build Include="dbo\Tables\GL_C_DISPOSITIVO.sql" />
+    <Build Include="dbo\Tables\GL_C_ESTADO.sql" />
+    <Build Include="dbo\Tables\TV_D_GRUPOS.sql" />
+    <Build Include="dbo\Tables\GL_C_OPCION.sql" />
+    <Build Include="dbo\Tables\TV_D_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Tables\GL_C_PAIS.sql" />
+    <Build Include="dbo\Tables\TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Tables\GL_C_PERFIL.sql" />
+    <Build Include="dbo\Tables\GL_C_SUCURSAL.sql" />
+    <Build Include="dbo\Tables\TV_R_CANAL_CONTENIDO.sql" />
+    <Build Include="dbo\Tables\GL_C_TIPO_ASENTAMIENTO.sql" />
+    <Build Include="dbo\Tables\GL_C_USUARIO.sql" />
+    <Build Include="dbo\Tables\GL_D_AUDITORIA.sql" />
+    <Build Include="dbo\Tables\GL_D_DIRECCION.sql" />
+    <Build Include="dbo\Tables\GL_D_ENTIDAD.sql" />
+    <Build Include="dbo\Tables\GL_D_ESTACION_TRABAJO.sql" />
+    <Build Include="dbo\Tables\TV_R_MONITOR.sql" />
+    <Build Include="dbo\Tables\TV_D_CAMPO.sql" />
+    <Build Include="dbo\Tables\GL_D_LICENCIAMIENTO.sql" />
+    <Build Include="dbo\Tables\TV_R_TABLA_CAMPO.sql" />
+    <Build Include="dbo\Tables\GL_D_PERSONA_SUCURSAL.sql" />
+    <Build Include="dbo\Tables\GL_D_SESION.sql" />
+    <Build Include="dbo\Tables\GL_R_CARACTERISTICA_SUCURSAL.sql" />
+    <Build Include="dbo\Tables\GL_R_DIRECCION_ENTIDAD.sql" />
+    <Build Include="dbo\Tables\GL_R_PERFIL_OPCION.sql" />
+    <Build Include="dbo\Tables\GL_R_PERSONA_DIRECCION.sql" />
+    <Build Include="dbo\Tables\GL_R_SUCURSAL_APLICACION_IST.sql" />
+    <Build Include="dbo\Tables\GL_R_SUCURSAL_DIRECCION.sql" />
+    <Build Include="dbo\Tables\TV_R_TEMPLATE_CANAL.sql" />
+    <Build Include="dbo\Tables\TV_C_MENSAJES.sql" />
+    <Build Include="dbo\Tables\TV_R_TEMPLATE_REPRODUCTOR.sql" />
+    <Build Include="dbo\Tables\TV_D_REPOSITORIO.sql" />
+    <Build Include="dbo\Tables\TV_D_TABLA.sql" />
+    <Build Include="dbo\Tables\TV_D_CONTENIDO.sql" />
+    <Build Include="dbo\Tables\TV_D_LOG_EXCEPCIONES_CAD.sql" />
+    <Build Include="dbo\Tables\GL_R_USUARIO_APLICACION_IS.sql" />
+    <Build Include="dbo\Tables\TV_D_CANAL.sql" />
+    <Build Include="dbo\Tables\TV_D_TEMPLATES.sql" />
+    <Build Include="dbo\Tables\GL_C_PARAMETRO.sql" />
+    <Build Include="dbo\Tables\TV_R_CAD.sql" />
+    <Build Include="dbo\Tables\TV_C_EXTENSIONES.sql" />
+    <Build Include="dbo\Tables\TV_D_RECOLECTOR_DATOS.sql" />
+    <Build Include="dbo\Tables\GL_D_LICENCIA_ACTIVA.sql" />
+    <Build Include="dbo\Tables\TV_C_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_DISPOSITIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_PERFIL.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_AUDITORIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_ENTIDAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_ESTACION_TRABAJO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_GRUPOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_LICENCIAMIENTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_D_GRUPOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_D_GRUPOS_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_PERSONA_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_GRUPOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_SESION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_GRUPOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_R_PERFIL_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_TEMPLATE_REPRODUCTOR_ID_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_R_SUCURSAL_APLICACION_IST.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_BITACORA_MOVIMIENTOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_GRUPOS_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_EXTENSIONES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_GRUPO_REPRODUCTOR_ID_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_HARDWARE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_DIRECTO.sql" />
+    <Build Include="dbo\Stored Procedures\PSD_TV_R_GRUPOS_REPORDUCTOR_ID_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_MENSAJES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_CANAL_DIRECTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_GRUPOS_REPRODUCTORES_ID_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_CANAL_CONTENIDO_DIRECTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPOS_REPRODUCTOR_ID_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_LOG_EXCEPCIONES_CAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_TEMPLATE_REPRODUCTOR_ID_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_RECOLECTOR_DATOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_REGION.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_TEMPLATES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_APLICACION_IST.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_DIRECCION_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_APLICACION_IST_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_COLONIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_R_PERSONA_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_COLONIA_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_R_PERSONA_DIRECCION_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_MENSAJE_VIVO_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_COLONIA_CP.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_CANAL_CONTENIDO_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_R_PERSONA_DIRECCION_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_MENSAJE_VIVO_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_DELEG_MUNICIPIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_TIPO_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_PERSONA_DIRECCION_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_MENSAJE_VIVO_REPRODUCTOR_IP.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_DELEG_MUNICIPIO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_CANAL_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_PERSONA_DIRECCION_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_MENSAJE_VIVO_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_DISPOSITIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_CANAL_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PARAMETRO_CATALOGOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_DISPOSITIVO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PARAMETRO_CATALOGO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_ESTADO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_PARAMETRO_CATALOGO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_ID_MENSAJE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_ESTADO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_C_PARAMETRO_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_OPCION_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_OPCION_PADRE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_CANAL_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_MENSAJE_VIVO_.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PAIS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_CANAL_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_MENSAJE_VIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PAIS_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PARAMETRO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PARAMETRO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PERFIL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PERFIL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_SUCURSAL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CANAL_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_SUCURSAL_ENTIDAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_TIPO_ASENTAMIENTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_TIPO_ASENTAMIENTO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_USUARIO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REPOSITORIO_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_USUARIO_CLAVE_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_AUDITORIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_AUDITORIA_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_DIRECCION_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_ENTIDAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_ENTIDAD_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_ESTACION_TRABAJO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_ESTACION_TRABAJO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_LICENCIAMIENTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_LICENCIAMIENTO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CAMPO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_PERSONA_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_TABLA_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_PERSONA_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_TABLA_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_PERSONA_SUCURSAL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TABLA_CAMPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REGION_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_SESION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TABLA_CAMPO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_REGION_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_SESION_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_TEMPLATE_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_REGION_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_PERFIL_OPCION_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_TEMPLATE_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_REGION_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_SUCURSAL_APLICACION_IST.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_REGION_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_SUCURSAL_APLICACION_IST_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_CANAL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_REGION_CANAL_REGION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_R_SUCURSAL_APLICACION_IST_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_CANAL_POR_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_REGION_CANAL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_BITACORA_MOVIMIENTOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CONTENIDO_MULTIMEDIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_BITACORA_MOVIMIENTOS_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_REGION_CANAL_SIN.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CONTENIDO_TEXTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_EXTENSIONES.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CONTENIDO_STREAM.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_EXTENSIONES_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_REGION_CANAL_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CONTENIDO_MULTIMEDIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_HARDWARE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CONTENIDO_TEXTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_HARDWARE_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_REGION_CANAL_SIN.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CONTENIDO_STREAM.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_MENSAJES.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO_MENSAJE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_MENSAJES_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_CANAL_CONTENIDO_ID_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_TV_DIRECTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_TEMPLATE_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CANAL_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_TEMPLATE_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_BY_IP.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_TEMPLATE_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_TABLA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_LOG_EXCEPCIONES_CAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_REPRODUCTOR_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_LOG_EXCEPCIONES_CAD_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_REPRODUCTOR_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_MENSAJES_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_RECOLECTOR_DATOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_TEMPLATE_REPRODUCTOR_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_RECOLECTOR_DATOS_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_AUDITORIA_REPORTE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REGION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REGION_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REPOSITORIO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_DISPOSITIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_PARAMETRO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_PERFIL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_AUDITORIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_DISPOSITIVO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_ENTIDAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_PARAMETRO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_ESTACION_TRABAJO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_PERFIL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_RECOLECTOR_DATOS_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_LICENCIAMIENTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_C_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_PERSONA_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_AUDITORIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_SESION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_DIRECCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_R_SUCURSAL_APLICACION_IST.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_ENTIDAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_BITACORA_MOVIMIENTOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_ESTACION_TRABAJO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_EXTENSIONES.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_LICENCIAMIENTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_HARDWARE.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PARAMETRO_COMBO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_MENSAJES.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_PERSONA_SUCURSAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_PERFIL_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_RECOLECTOR_DATOS_BY_ACTUALIZACION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_D_SESION.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_R_PERFIL_OPCION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_OPCION_ASIGNADO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_GL_R_SUCURSAL_APLICACION_IST.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_LOG_EXCEPCIONES_CAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_BITACORA_MOVIMIENTOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_OPCION_DESASIGNADO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_RECOLECTOR_DATOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_EXTENSIONES.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_REGION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_HARDWARE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_MENSAJES.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_TEMPLATES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_ACTUALIZACION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_REPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_GL_D_LICENCIA_ACTIVA.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_C_REPRODUCTOR_ACTUALIZACION.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_D_LICENCIA_ACTIVA.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_CONTENIDO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_LICENCIA_ACTIVA_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_LOG_EXCEPCIONES_CAD.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_AUDITORIA_REPORTE_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_LICENCIA_ACTIVA_LICENCIA.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_RECOLECTOR_DATOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_REGION.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_REPOSITORIO_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_D_TEMPLATES.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_CATALOGO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_CATALOGO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_D_GRUPOS_CATALOGO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_D_GRUPOS_CATALOGO_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_CATALOGO_ASIGNADO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPOS_REPRODUCTOR_ID_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_GRUPOS_REPRODUCTOR_IDREPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_GRUPO_REPRODUCTOR_IDREPRODUCTOR.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_CANAL_CONTENIDO_ID_CANAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_TABLA_DINAMICA.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_TABLA_DINAMICA_DATOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TABLA_DINAMICA.sql" />
+    <Build Include="dbo\Tables\TV_D_COLUMNA.sql" />
+    <Build Include="dbo\Tables\TV_R_COLUMNA_TABLA_1.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TABLA_NOMBRE.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CONTENIDO_TABLA.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CONTENIDO_TABLA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_USUARIO_ID_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_GL_C_USUARIO_ID_PERSONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_PERSONA_USUARIO_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_TEXTO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_TEMPLATES_XML.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_XML.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CANAL_XML.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_CANAL_.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_CANAL_.sql" />
+    <Build Include="dbo\Tables\TV_R_PREVIEW_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_R_PREVIEW_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_R_PREVIEW_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_R_PREVIEW_TEMPLATE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_PREVIEW_TEMPLATE_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_R_PREVIEW_TEMPLATE.sql" />
+    <Build Include="dbo\Tables\TV_C_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_C_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPOSITORIO_BY_NAME.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPOSITORIO_NOMBRE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPD_TV_C_REPOSITORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_D_AUDITORIA_REPORTE_FILE.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_GL_C_USUARIO_REPORTE.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_RECOLECTOR_DATOS_REPRO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_RECOLECTOR_DATOS_REPRO.sql" />
+    <Build Include="dbo\Tables\TV_D_HORARIO_TERMINAL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_HORARIO_TERMINAL_ALL.sql" />
+    <Build Include="dbo\Tables\TV_R_HORARIO_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_HORARIO_GRUPO_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_C_REPRODUCTOR_BY_ID_GRUPO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_HORARIO_TERMINAL.sql" />
+    <Build Include="dbo\Tables\TV_D_ENVIO.sql" />
+    <Build Include="dbo\Tables\TV_D_ENVIO_HISTORICO.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_ENVIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPU_TV_D_ENVIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIOS.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIOS_H_All.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIOS_POST.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIO_ESTATUS.sql" />
+    <Build Include="dbo\Stored Procedures\SPI_TV_D_ENVIO_HISTORICO.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\Script1.sql" />
+    <None Include="dbo\VaciarBaseDeDatos.sql" />
+    <None Include="dbo\CParemetros.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="IPTV.refactorlog" />
+  </ItemGroup>
+</Project>

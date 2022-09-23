@@ -1,0 +1,41 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Actualiza los campos de un registro en especifico de la tabla TV_C_BITACORA_MOVIMIENTOS
+-- =============================================
+CREATE PROCEDURE [dbo].[SPU_TV_C_BITACORA_MOVIMIENTOS]
+    @ID_BITACORA INT
+    ,@ID_REPRODUCTOR INT
+    ,@ID_TEMPLATE INT
+    ,@ID_REGION INT
+    ,@ID_CANAL INT
+    ,@ID_CONTENIDO INT
+    ,@ID_ESTATUS INT
+    ,@DESCRIPCION VARCHAR(MAX)
+    ,@ID_USUARIO INT
+    ,@FEC_ALTA DATETIME
+    ,@OPERACION VARCHAR(50)
+    ,@TABLA VARCHAR(50)
+    ,@IP_MODIFICO VARCHAR(50)
+AS
+BEGIN
+  SET NOCOUNT ON
+  UPDATE TV_C_BITACORA_MOVIMIENTOS SET
+    ID_REPRODUCTOR = @ID_REPRODUCTOR
+    ,ID_TEMPLATE = @ID_TEMPLATE
+    ,ID_REGION = @ID_REGION
+    ,ID_CANAL = @ID_CANAL
+    ,ID_CONTENIDO = @ID_CONTENIDO
+    ,ID_ESTATUS = @ID_ESTATUS
+    ,DESCRIPCION = @DESCRIPCION
+    ,ID_USUARIO = @ID_USUARIO
+    ,FEC_ALTA = @FEC_ALTA
+    ,OPERACION = @OPERACION
+    ,TABLA = @TABLA
+    ,IP_MODIFICO = @IP_MODIFICO
+  WHERE
+      ID_BITACORA = @ID_BITACORA
+  SET NOCOUNT OFF
+END
+

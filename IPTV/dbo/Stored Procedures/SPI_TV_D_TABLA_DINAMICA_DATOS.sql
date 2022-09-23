@@ -1,0 +1,67 @@
+﻿-- =============================================
+-- Author:		Ing. Luis Fernando Angeles Escamilla
+-- Create date: 15-09-2020
+-- Description:	Inserccion de datos para tablas dinamicas
+-- =============================================
+CREATE PROCEDURE SPI_TV_D_TABLA_DINAMICA_DATOS
+	@ID_TABLA INT
+  ,@REGISTRO NVARCHAR(MAX)
+AS
+BEGIN
+	SET NOCOUNT ON;
+  DECLARE 
+    @DATO NVARCHAR(MAX)
+    ,@DATOS NVARCHAR(MAX)
+    ,@COLUMNA NVARCHAR(MAX)
+    ,@COLUMNAS NVARCHAR(MAX)
+    ,@SQL NVARCHAR(MAX)
+    ,@NOMBRE_TABLA_BD NVARCHAR(MAX)
+    ,@SEPERADOR VARCHAR(1) = '|'
+ 
+   SELECT @NOMBRE_TABLA_BD = NOMBRE_BD
+   FROM TV_D_TABLA
+   WHERE ID_TABLA = @ID_TABLA
+
+   SET @SQL = 'INSERT INTO ' + @NOMBRE_TABLA_BD + '(';
+   SET @COLUMNAS = '';
+
+  DECLARE ProdInfo CURSOR FOR 
+      SELECT TA.NOMBRE_BD
+      FROM TV_D_COLUMNA TA
+      LEFT JOIN TV_R_COLUMNA_TABLA TB ON TB.ID_COLUMNA = TA.ID_COLUMNA
+      WHERE TB.ID_TABLA = @ID_TABLA
+    OPEN ProdInfo
+      FETCH NEXT FROM ProdInfo INTO @COLUMNA
+      WHILE @@fetch_status = 0
+      BEGIN
+        --PRINT @COLUMNA
+        SET @COLUMNAS = @COLUMNAS + ' ,' + @COLUMNA;
+        FETCH NEXT FROM ProdInfo INTO @COLUMNA
+      END
+    CLOSE ProdInfo
+  DEALLOCATE ProdInfo
+
+  --PRINT @COLUMNAS;
+  SET @SQL = @SQL + SUBSTRING(@COLUMNAS,3,LEN(@COLUMNAS)) + ') VALUES(';
+  --PRINT @SQL;
+
+  SET @REGISTRO = @REGISTRO + @SEPERADOR;
+  SET @DATOS= '';
+  WHILE CHARINDEX(@SEPERADOR, @REGISTRO) > 0
+  BEGIN
+    SET @DATO = SUBSTRING(@REGISTRO, 0, CHARINDEX(@SEPERADOR, @REGISTRO));
+    SET @REGISTRO = SUBSTRING(@REGISTRO, CHARINDEX(@SEPERADOR, @REGISTRO) + 1, LEN(@REGISTRO));
+    SET @DATOS = @DATOS + ' ,' + CHAR(39) + @DATO + CHAR(39);
+
+    --PRINT @DATO;
+
+  END;
+
+  SET @SQL = @SQL + SUBSTRING(@DATOS,3,LEN(@DATOS)) + ')';
+  --PRINT @SQL;
+
+  EXEC sys.[sp_executesql] @SQL;
+
+  SELECT @@IDENTITY
+
+END

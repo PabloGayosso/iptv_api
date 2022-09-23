@@ -1,0 +1,31 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Actualiza los campos de un registro en especifico de la tabla GL_R_SUCURSAL_APLICACION_IST
+-- =============================================
+CREATE PROCEDURE [dbo].[SPU_GL_R_SUCURSAL_APLICACION_IST]
+    @ID_SUCURSAL_APLICACION INT
+    ,@ID_SUCURSAL INT
+    ,@ID_APLICACION_IST INT
+    ,@LICENCIA_ACTIVADA NVARCHAR(MAX)
+    ,@LICENCIA VARCHAR(MAX)
+    ,@FEC_ALTA DATETIME
+    ,@FEC_MOD DATETIME
+    ,@USUARIO VARCHAR(30)
+AS
+BEGIN
+  SET NOCOUNT ON
+  UPDATE GL_R_SUCURSAL_APLICACION_IST SET
+    ID_SUCURSAL = @ID_SUCURSAL
+    ,ID_APLICACION_IST = @ID_APLICACION_IST
+    ,LICENCIA_ACTIVADA = @LICENCIA_ACTIVADA
+    ,LICENCIA = @LICENCIA
+    ,FEC_ALTA = @FEC_ALTA
+    ,FEC_MOD = @FEC_MOD
+    ,USUARIO = @USUARIO
+  WHERE
+      ID_SUCURSAL_APLICACION = @ID_SUCURSAL_APLICACION
+  SET NOCOUNT OFF
+END
+

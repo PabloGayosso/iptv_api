@@ -1,0 +1,61 @@
+﻿-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Inserta registro en la tabla TV_D_LOG_EXCEPCIONES_CAD
+-- =============================================
+CREATE PROCEDURE [dbo].[SPI_TV_D_LOG_EXCEPCIONES_CAD]
+    @ID_LOG INT
+    ,@DESCRIPCION VARCHAR(MAX)
+    ,@ID_USUARIO INT
+    ,@ID_REPRODUCTOR INT
+    ,@ID_TEMPLATE INT
+    ,@ID_REGION INT
+    ,@ID_CANAL INT
+    ,@ID_CONTENIDO INT
+    ,@FECHA_CREACION DATETIME
+    ,@NIVEL_SEVERIDAD VARCHAR(50)
+    ,@IP VARCHAR(50)
+    ,@USUARIO_ATENDIDO VARCHAR(50)
+    ,@SOLUCION VARCHAR(MAX)
+    ,@FECHA_ATENDIDO DATETIME
+AS
+BEGIN
+  SET NOCOUNT ON
+  INSERT INTO TV_D_LOG_EXCEPCIONES_CAD
+    (
+      ID_LOG
+      ,DESCRIPCION
+      ,ID_USUARIO
+      ,ID_REPRODUCTOR
+      ,ID_TEMPLATE
+      ,ID_REGION
+      ,ID_CANAL
+      ,ID_CONTENIDO
+      ,FECHA_CREACION
+      ,NIVEL_SEVERIDAD
+      ,IP
+      ,USUARIO_ATENDIDO
+      ,SOLUCION
+      ,FECHA_ATENDIDO
+    )
+  VALUES
+  (
+    @ID_LOG
+    ,@DESCRIPCION
+    ,@ID_USUARIO
+    ,@ID_REPRODUCTOR
+    ,@ID_TEMPLATE
+    ,@ID_REGION
+    ,@ID_CANAL
+    ,@ID_CONTENIDO
+    ,@FECHA_CREACION
+    ,@NIVEL_SEVERIDAD
+    ,@IP
+    ,@USUARIO_ATENDIDO
+    ,@SOLUCION
+    ,@FECHA_ATENDIDO
+  )
+  SELECT @@IDENTITY
+  SET NOCOUNT OFF
+END
+

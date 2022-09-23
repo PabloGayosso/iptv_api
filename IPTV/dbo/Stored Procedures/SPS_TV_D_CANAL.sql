@@ -1,0 +1,79 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Selecciona un registro en especifico de la tabla TV_D_CANAL
+-- =============================================
+CREATE PROCEDURE [dbo].[SPS_TV_D_CANAL]
+    @ID_CANAL INT
+  AS
+BEGIN
+  SET NOCOUNT ON
+  SELECT 
+     C.ID_CANAL
+    ,C.ID_TIPO_CANAL
+    --,DURACION_SEG
+    --,DURACION_MIN
+    --,DURACION_HRS
+    --,INICIO_SEG
+    --,INICIO_MIN
+    --,INICIO_HRS
+    --,POSICION_X
+    --,POSICION_Y
+    --,ES_REPETITIVO
+    --,ID_TIPO_PRESENTACION
+    --,ID_FORMA_DESPLIEGUE
+   -- ,ES_COLOR_FONDO_TEXTO
+    --,OPACIDAD_BARRA_TEXTO
+    --,COLOR_FONDO_BARRA_TEXTO
+    --,RUTA_IMG_FONDO_BARRA_TEXTO
+    --,VELOCIDAD_TEXTO
+    --,TIPO_LETRA_TEXTO
+    --,TAMANIO_LETRA_TEXTO
+    --,OPACIDAD_TEXTO
+    --,COLOR_TEXTO
+    --,ANCHO_BARRA_TEXTO
+    --,ALTO_BARRA_TEXTO
+    --,ORIENTACION_TEXTO
+    --,POSICION_X_FIN_TEXTO
+    --,POSICION_Y_FIN_TEXTO
+    --,FEC_REPRODUCCION
+    ,C.FEC_ALTA
+    ,C.FEC_MOD
+    --,ORDEN
+    ,C.ID_ESTATUS
+    --,ALTO
+    --,ANCHO
+    ,C.CANTIDAD_CONTENIDO
+    ,C.CLAVE
+    --,FEC_FIN
+    --,FEC_INICIO
+    --,FIN_HRS
+    --,FIN_MIN
+    --,FIN_SEG
+    --,OPACIDAD
+    --,ES_INTERMITENCIA
+    --,INTERMITENCIA_SEG
+    --,INTERMITENCIA_MIN
+    --,INTERMITENCIA_HRS
+    --,VOLUMEN
+    ,C.USUARIO
+    ,CO.*
+    ,CC.FEC_INICIO
+    ,CC.FEC_FIN
+    ,CC.INICIO_HRS
+    ,CC.INICIO_MIN
+    ,CC.INICIO_SEG
+    ,CC.FIN_HRS
+    ,CC.FIN_MIN
+    ,CC.FIN_SEG
+  FROM TV_D_CANAL C 
+  LEFT JOIN TV_R_CANAL_CONTENIDO CC
+  ON C.ID_CANAL = CC.ID_CANAL
+  LEFT JOIN TV_D_CONTENIDO CO
+  ON CC.ID_CONTENIDO = CO.ID_CONTENIDO
+  WHERE
+    C.ID_CANAL = @ID_CANAL
+  SET NOCOUNT OFF
+END
+

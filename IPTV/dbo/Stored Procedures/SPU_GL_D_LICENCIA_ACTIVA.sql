@@ -1,0 +1,36 @@
+﻿ 
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  23/05/2020
+-- Description:  Actualiza los campos de un registro en especifico de la tabla GL_D_LICENCIA_ACTIVA
+-- =============================================
+CREATE PROCEDURE SPU_GL_D_LICENCIA_ACTIVA
+    @ID_LICENCIA_ACTIVA INT
+    ,@ID_ENTIDAD INT
+    ,@ID_SUCURSAL INT
+    ,@ID_APLICACION_IST INT
+    ,@ID_ESTATUS INT
+    ,@LICENCIA NVARCHAR(MAX)
+    ,@LICENCIA_ACTIVA NVARCHAR(MAX)
+    ,@MAC_ADDRESS NVARCHAR(100)
+    --,@FECHA_ALTA DATETIME
+    --,@FECHA_MOD DATETIME
+    ,@USUARIO VARCHAR(100)
+AS
+BEGIN
+  SET NOCOUNT ON
+  UPDATE GL_D_LICENCIA_ACTIVA SET
+    ID_ENTIDAD = @ID_ENTIDAD
+    ,ID_SUCURSAL = @ID_SUCURSAL
+    ,ID_APLICACION_IST = @ID_APLICACION_IST
+    ,ID_ESTATUS = @ID_ESTATUS
+    ,LICENCIA = @LICENCIA
+    ,LICENCIA_ACTIVA = @LICENCIA_ACTIVA
+    ,MAC_ADDRESS = @MAC_ADDRESS
+    --,FECHA_ALTA = @FECHA_ALTA
+    ,FECHA_MOD = GETDATE()
+    ,USUARIO = @USUARIO
+  WHERE
+    ID_LICENCIA_ACTIVA = @ID_LICENCIA_ACTIVA
+  SET NOCOUNT OFF
+END

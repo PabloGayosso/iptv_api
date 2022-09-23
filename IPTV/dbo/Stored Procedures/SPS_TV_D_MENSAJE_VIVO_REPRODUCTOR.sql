@@ -1,0 +1,34 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  31/03/2020
+-- Description:  Selecciona un registro en especifico de la tabla TV_D_MENSAJE_VIVO por player
+-- =============================================
+CREATE PROCEDURE [dbo].[SPS_TV_D_MENSAJE_VIVO_REPRODUCTOR]
+    @ID_REPRODUCTOR INT
+  AS
+BEGIN
+  SET NOCOUNT ON
+  SELECT 
+    TB.ID_GRUPO_REPRODUCTOR_MENSAJE AS ID_MENSAJE
+    ,TA.ID_ESTATUS
+    ,TA.DSC_MENSAJE
+    ,TA.ES_REPETITIVO
+    ,TA.TIEMPO_REPETICION
+    ,TA.FECHA_ALTA
+    ,TA.FECHA_MOD
+    ,TA.USUARIO
+    ,TA.COLOR_FONDO_BARRA_TEXTO
+    ,TA.OPACIDAD_TEXTO
+    ,TA.OPACIDAD_BARRA_TEXTO
+    ,TA.TIPO_LETRA_TEXTO
+    ,TA.TAMANIO_LETRA_TEXTO
+    ,TA.COLOR_TEXTO
+    ,TA.VELOCIDAD_TEXTO
+  FROM TV_D_MENSAJE_VIVO TA
+  LEFT JOIN TV_R_GRUPO_REPRODUCTOR_MENSAJE_VIVO TB ON TB.ID_MENSAJE = TA.ID_MENSAJE
+  WHERE
+    TB.ID_REPRODUCTOR = @ID_REPRODUCTOR
+	AND TB.ID_ESTATUS = 3
+  SET NOCOUNT OFF
+END

@@ -1,0 +1,53 @@
+﻿-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  15/08/2018
+-- Description:  Inserta registro en la tabla TV_C_REPRODUCTOR
+-- =============================================
+CREATE PROCEDURE [dbo].[SPI_TV_C_REPRODUCTOR]
+    @CANTIDAD_VIDEOS INT
+    ,@DESCRIPCION VARCHAR(50)
+    ,@ID_TIPO_DISPOSITIVO INT
+    ,@IP_CLIENTE VARCHAR(50)
+    ,@PUERTO_CLIENTE VARCHAR(50)
+    ,@RUTA_REPOSITORIO VARCHAR(150) = ''
+    ,@ID_ESTATUS INT
+	,@DIRECCION_MAC VARCHAR(20)
+
+    --,@FEC_ALTA DATETIME2
+    --,@FEC_MOD DATETIME2
+    ,@USUARIO VARCHAR(50)
+AS
+BEGIN
+  SET NOCOUNT ON
+  INSERT INTO TV_C_REPRODUCTOR
+    (
+      CANTIDAD_VIDEOS
+      ,DESCRIPCION
+      ,FEC_ALTA
+      --,FEC_MOD
+      ,ID_TIPO_DISPOSITIVO
+      ,IP_CLIENTE
+      ,PUERTO_CLIENTE
+      ,RUTA_REPOSITORIO
+      ,USUARIO
+      ,ID_ESTATUS
+	  ,DIRECCION_MAC
+    )
+  VALUES
+  (
+    @CANTIDAD_VIDEOS
+    ,@DESCRIPCION
+    ,GETDATE()
+    --,@FEC_MOD
+    ,@ID_TIPO_DISPOSITIVO
+    ,@IP_CLIENTE
+    ,@PUERTO_CLIENTE
+    ,@RUTA_REPOSITORIO
+    ,@USUARIO
+    ,@ID_ESTATUS
+	,@DIRECCION_MAC
+  )
+  SELECT @@IDENTITY
+  SET NOCOUNT OFF
+END
+

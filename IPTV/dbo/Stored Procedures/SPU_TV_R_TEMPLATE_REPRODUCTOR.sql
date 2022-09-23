@@ -1,0 +1,32 @@
+﻿
+-- =============================================
+-- Author:       Ing. Luis Fernando Angeles Escamilla
+-- Create date:  27/09/2018
+-- Description:  Actualiza los campos de un registro en especifico de la tabla TV_R_TEMPLATE_REPRODUCTOR
+-- =============================================
+CREATE PROCEDURE [dbo].[SPU_TV_R_TEMPLATE_REPRODUCTOR]
+  @ID_REPRODUCTOR INT
+  ,@ID_TEMPLATE INT
+  ,@ID_ESTATUS INT
+  ,@USUARIO VARCHAR(30)
+AS
+BEGIN
+  SET NOCOUNT ON
+  UPDATE TV_R_TEMPLATE_REPRODUCTOR SET
+    ID_TEMPLATE = @ID_TEMPLATE
+    ,ID_ESTATUS = @ID_ESTATUS
+    ,FECHA_MOD = GETDATE()
+    ,USUARIO = @USUARIO
+  WHERE
+    ID_REPRODUCTOR = @ID_REPRODUCTOR
+
+  UPDATE TV_C_REPRODUCTOR SET
+    ACTUALIZACION = 1
+  WHERE
+    ID_REPRODUCTOR = @ID_REPRODUCTOR
+
+	DELETE TV_R_GRUPO_REPRODUCTOR 
+	WHERE ID_REPRODUCTOR = @ID_REPRODUCTOR
+
+  SET NOCOUNT OFF
+END
