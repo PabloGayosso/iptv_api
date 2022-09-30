@@ -48,7 +48,7 @@ namespace iptv.Servicios.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [EnableCors("MyPolicy")]
         [HttpGet("ObtenerEnviosEstatus/{idEnvio:int}")]
         public async Task<ActionResult<EnviosDto>> Consulta_Envio_Estatus_Async(int idEnvio)
