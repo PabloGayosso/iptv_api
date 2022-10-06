@@ -11,6 +11,8 @@ using iptv.Negocio;
 using iptv.Negocio.Utilidades;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using iptv.Servicios.Log;
+
 namespace iptv.Servicios.Controllers
 {
     [Route("api/[controller]")]
@@ -146,7 +148,7 @@ namespace iptv.Servicios.Controllers
                 //return NotFound(ex.Message);
             }
         }
-        [Authorize]
+        //[Authorize]
         [EnableCors("MyPolicy")]
         [HttpPost("GenerarXML")]
         public async Task<ActionResult<bool>> GenerarXML(AltaXMLDto altaXml)
@@ -165,7 +167,7 @@ namespace iptv.Servicios.Controllers
             {
                 //Guid objGuid = Guid.NewGuid();
                 string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
+                Logger.LogError(strMensajeError +" "+ ex.Message);
                 _logger.LogError(strMensajeError + ex.Message, ex);
                 return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
                 //return NotFound(ex.Message);

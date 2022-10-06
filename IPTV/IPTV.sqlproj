@@ -431,6 +431,7 @@
     <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIOS_POST.sql" />
     <Build Include="dbo\Stored Procedures\SPS_TV_D_ENVIO_ESTATUS.sql" />
     <Build Include="dbo\Stored Procedures\SPI_TV_D_ENVIO_HISTORICO.sql" />
+    <Build Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_GUID_RUTA.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Script1.sql" />

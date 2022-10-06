@@ -271,7 +271,6 @@ namespace iptv.Negocio
                                             planntillaXML = planntillaXML.Replace(',', '.');
                                             var contenidos = await daoIptv.ObtenerContenidosPorIdCanalAsync(template.templateCanal[i].canales[j].ID_CANAL);
 
-
                                             for (int c = 0; contenidos.Count > c; c++)
                                             {
                                                 //Activar modo ingles (Chiapas)
@@ -363,7 +362,6 @@ namespace iptv.Negocio
                                                         break;
                                                 }
                                                 planntillaXML += " NOMBRE=\"" + contenidos[c].NOMBRE.TrimEnd().Replace(" ", "_") + "\"";
-                                                planntillaXML += " NOMBRE_REAL=\"" + contenidos[c].NOMBRE.TrimEnd().Replace(" ", "_") + "\"";
                                                 //+ " FECHA_ALTA=\"" + lbContenido[c].getContenido().getFecAlta() + "\""
                                                 //+ " ACTIVO=\"" + lbContenido[c].getContenido().getEstatus().getIdParametro() + "\"";
                                                 planntillaXML = planntillaXML.Replace(',', '.');
