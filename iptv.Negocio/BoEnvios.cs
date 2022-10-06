@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace iptv.Negocio
 {
-    public class BoEnvios: IBoEnvios
+    public class BoEnvios : IBoEnvios
     {
         IConfiguration configuration;
         IMapper _mapper;
@@ -36,7 +36,7 @@ namespace iptv.Negocio
                         envios = enviosDto
                     };
 
-                    if(enviosDto!=null && enviosDto.Count>0)
+                    if (enviosDto != null && enviosDto.Count > 0)
                     {
                         consulta.total = enviosDto.Count;
                         consulta.id_Busqueda = enviosDto[0].id_Envio;
@@ -132,6 +132,7 @@ namespace iptv.Negocio
         {
             using (NegocioSesion nSession = new NegocioSesion(configuration))
             {
+                bool esRollback = false;
                 UnitOfWork unitOfWork = nSession.UnitOfWork;
                 try
                 {
@@ -142,18 +143,19 @@ namespace iptv.Negocio
                     if (envios != null && envios.Count > 0)
                     {
                         envioDto = _mapper.Map<EnviosDto>(envios[0]);
-                        if(envioDto.porcentaje == 100)
+                        if (envioDto.porcentaje == 100)
                         {
                             EnvioH envioH = new EnvioH();
                             envioH.nombre_Contenido = envioDto.nombre_Contenido;
                             envioH.reproductor = envioDto.reproductor;
                             envioH.usuario = envioDto.usuario;
                             envioH.fec_Envio = envioDto.fec_Envio;
-                            envioH.fec_Alta = envioDto.fec_Alta;
+                            envioH.fec_Alta = envioDto.fec_Envio;
                             envioH.estatus = "ENVIO COMPLETO";
-
+                            unitOfWork.Begin();
+                            esRollback = true;
                             int respuesta = await daoIptv.AltaEnvioHistoricoAsync(envioH, id_Envio);
-                            
+                            unitOfWork.Commit();
                         }
                     }
                     else
@@ -162,10 +164,14 @@ namespace iptv.Negocio
                 }
                 catch (ExcepcionIptv)
                 {
+                    if (esRollback)
+                        unitOfWork.Rollback();
                     throw;
                 }
                 catch (Exception)
                 {
+                    if (esRollback)
+                        unitOfWork.Rollback();
                     throw;
                 }
             }

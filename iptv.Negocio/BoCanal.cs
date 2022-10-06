@@ -196,6 +196,10 @@ namespace iptv.Negocio
                                     contenido.ID_ESTATUS = canal.ID_ESTATUS;
                                     contenido.USUARIO = canal.USUARIO;
                                     contenido.ORDEN = orden;
+
+                                    contenido.FEC_INICIO = contenido.FEC_INICIO.Replace(",", "");
+                                    contenido.FEC_FIN = contenido.FEC_FIN.Replace(",", "");
+
                                     await daoIptv.AltaCanalContenidoAsync(ID_CANAL, contenido);
                                     orden++;
                                 }
