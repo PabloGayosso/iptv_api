@@ -436,6 +436,7 @@
     <None Include="dbo\Script1.sql" />
     <None Include="dbo\VaciarBaseDeDatos.sql" />
     <None Include="dbo\CParemetros.sql" />
+    <None Include="dbo\Stored Procedures\SPS_TV_D_CONTENIDO_RUTA_GUID.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="IPTV.refactorlog" />
