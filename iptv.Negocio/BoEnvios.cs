@@ -139,10 +139,12 @@ namespace iptv.Negocio
                     DaoIptv daoIptv = new DaoIptv(unitOfWork);
                     List<Envios> envios = await daoIptv.Consulta_Envio_Estatus_Async(id_Envio);
 
+                    
                     EnviosDto envioDto = null;
                     if (envios != null && envios.Count > 0)
                     {
-                        envioDto = _mapper.Map<EnviosDto>(envios[0]);
+                        Envios envio = envios[0];
+                        envioDto = _mapper.Map<EnviosDto>(envio);
                         if (envioDto.porcentaje == 100)
                         {
                             EnvioH envioH = new EnvioH();
@@ -156,6 +158,36 @@ namespace iptv.Negocio
                             esRollback = true;
                             int respuesta = await daoIptv.AltaEnvioHistoricoAsync(envioH, id_Envio);
                             unitOfWork.Commit();
+                        }
+                        
+                        else
+                        {
+                           
+                            //Obtener la fecha de fec_actualizar
+                            DateTime t_Actualizacion = DateTime.Parse(envio.fec_Actualizacion);
+                            
+                            //obten fec act de la maquina
+                            DateTime fActual = DateTime.Now;
+                            //comparar con la fec actualizacion convertida a datetime
+                            //int t_Result = DateTime.Compare(t_Sys, t_Actualizacion);
+                            TimeSpan tsDiferencia = fActual - t_Actualizacion;
+
+                            if (tsDiferencia.TotalSeconds > 90)
+                            {
+                                EnvioH envioH = new EnvioH();
+                                envioH.nombre_Contenido = envioDto.nombre_Contenido;
+                                envioH.reproductor = envioDto.reproductor;
+                                envioH.usuario = envioDto.usuario;
+                                envioH.fec_Envio = envioDto.fec_Envio;
+                                envioH.fec_Alta = envioDto.fec_Envio;
+                                envioH.estatus = "ENVIO INCOMPLETO";
+                                unitOfWork.Begin();
+                                esRollback = true;
+                                int respuesta = await daoIptv.AltaEnvioHistoricoAsync(envioH, id_Envio);
+                                unitOfWork.Commit();
+                            }
+
+
                         }
                     }
                     else

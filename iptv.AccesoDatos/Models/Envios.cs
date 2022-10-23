@@ -16,6 +16,7 @@ namespace iptv.AccesoDatos.Models
         public string tam_Descargado { get; set; }
         public int porcentaje { get; set; }
         public string fec_Alta { get; set; }
+        public string fec_Actualizacion { get; set; }
 
     }
 }

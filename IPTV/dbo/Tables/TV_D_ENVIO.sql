@@ -8,6 +8,7 @@
     [TAM_TOTAL]         VARCHAR(150)      NULL,
     [TAM_DESCARGADO]         VARCHAR(150)      NULL,
     [PORCENTAJE]   INT      NULL,
-    [FEC_ALTA]  DATETIME             NULL
+    [FEC_ALTA]  DATETIME             NULL,
+    [FEC_ACTUALIZACION]  DATETIME             NULL
 );
 
