@@ -1,5 +1,6 @@
 ﻿using iptv.AccesoDatos.DTO;
 using iptv.Negocio;
+using iptv.Negocio.Log;
 using iptv.Negocio.Utilidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -18,6 +19,7 @@ namespace iptv.Servicios.Controllers
         IBoEnvios boEnvio;
         IConfiguration configuration;
         ILogger<EnviosController> _logger;
+
         public EnviosController(IBoEnvios boEnvio, IConfiguration configuration, ILogger<EnviosController> logger)
         {
             this.boEnvio = boEnvio;
@@ -59,6 +61,7 @@ namespace iptv.Servicios.Controllers
             }
             catch (ExcepcionIptv ex)
             {
+                Logger.LogAdvertencia(ex.Message);
                 _logger.LogWarning(ex.Message);
                 return BadRequest(ex.Message);
             }
@@ -67,6 +70,7 @@ namespace iptv.Servicios.Controllers
                 //Guid objGuid = Guid.NewGuid();
                 string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
                 //log.Error(strMensajeError + e.Message, e);
+                Logger.LogError(strMensajeError + ex.ToString());
                 _logger.LogError(strMensajeError + ex.Message, ex);
                 return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
                 //return NotFound(ex.Message);

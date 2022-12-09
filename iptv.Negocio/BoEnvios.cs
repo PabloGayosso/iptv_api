@@ -2,6 +2,7 @@
 using iptv.AccesoDatos;
 using iptv.AccesoDatos.DTO;
 using iptv.AccesoDatos.Models;
+using iptv.Negocio.Log;
 using iptv.Negocio.Utilidades;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -127,7 +128,7 @@ namespace iptv.Negocio
                 }
             }
         }
-
+        Logger _logger = new Logger();
         public async Task<EnviosDto> Consulta_Envio_Estatus_Async(int id_Envio)
         {
             using (NegocioSesion nSession = new NegocioSesion(configuration))
@@ -162,7 +163,8 @@ namespace iptv.Negocio
                         
                         else
                         {
-                           
+                            Logger.LogInfo("FecAct: " + envio.fec_Actualizacion);
+
                             //Obtener la fecha de fec_actualizar
                             DateTime t_Actualizacion = DateTime.Parse(envio.fec_Actualizacion);
                             

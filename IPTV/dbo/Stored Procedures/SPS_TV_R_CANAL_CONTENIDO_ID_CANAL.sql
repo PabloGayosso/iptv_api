@@ -11,8 +11,8 @@ BEGIN
   SET NOCOUNT ON
   SELECT
     CO.*
-    ,CC.FEC_INICIO
-    ,CC.FEC_FIN
+    ,convert(varchar, CC.FEC_INICIO, 103) +' '+ convert(varchar, CC.FEC_INICIO, 8) as FEC_INICIO
+    ,convert(varchar, CC.FEC_FIN, 103) +' '+ convert(varchar, CC.FEC_FIN, 8) as FEC_FIN
     ,CC.INICIO_HRS
     ,CC.INICIO_MIN
     ,CC.INICIO_SEG

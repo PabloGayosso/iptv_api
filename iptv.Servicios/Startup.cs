@@ -93,7 +93,7 @@ namespace iptv.Servicios
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
-                builder.WithOrigins(new string[] { "http://localhost:8082", "https://localhost:3000" })
+                builder.WithOrigins(new string[] { "http://localhost:8082", "https://localhost:3000", "http://localhost:3000" })
                        //.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();

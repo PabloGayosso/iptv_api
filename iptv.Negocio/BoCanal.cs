@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using iptv.AccesoDatos.Enum;
 using iptv.Negocio.Log;
+using System.Globalization;
 
 namespace iptv.Negocio
 {

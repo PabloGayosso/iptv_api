@@ -25,7 +25,8 @@ BEGIN
       TAM_TOTAL,
       TAM_DESCARGADO,
       PORCENTAJE,
-	  FEC_ALTA
+	    FEC_ALTA,
+	    FEC_ACTUALIZACION
     )
   VALUES
   (
@@ -37,7 +38,8 @@ BEGIN
       @TAM_TOTAL,
       @TAM_DESCARGADO,
       @PORCENTAJE,
-	  GETDATE()
+	    GETDATE(),
+	    GETDATE()
   )
   SELECT @@IDENTITY
   SET NOCOUNT OFF
