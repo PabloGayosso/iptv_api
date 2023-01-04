@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
+using iptv.Servicios.Log;
+
 namespace iptv.Servicios.Controllers
 {
     [Route("api/[controller]")]
@@ -34,6 +36,7 @@ namespace iptv.Servicios.Controllers
             this.boRepositorio = boRepositorio;
             this._logger = logger;
         }
+
         [Authorize]
         [EnableCors("MyPolicy")]
         [HttpPost("AltaContenido")]
@@ -119,12 +122,15 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                ////Guid objGuid = Guid.NewGuid();
+                //string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
+                ////log.Error(strMensajeError + e.Message, e);
+                //_logger.LogError(strMensajeError + ex.Message, ex);
+                //return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
+                ////return NotFound(ex.Message);
+
+                Logger.Log_Error(_logger, this.GetType().FullName, "AltaContenido", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
         [EnableCors("MyPolicy")]
@@ -179,12 +185,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "multimedia", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
         [Authorize]
@@ -203,12 +205,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "Repositorios", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
         [Authorize]
@@ -227,12 +225,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "RepositorioContenido", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
 
@@ -291,12 +285,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "ReproMultimedia", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
         [Authorize]
@@ -315,12 +305,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "CatReproductor", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
         [Authorize]
@@ -378,12 +364,8 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
-                //Guid objGuid = Guid.NewGuid();
-                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-                //log.Error(strMensajeError + e.Message, e);
-                _logger.LogError(strMensajeError + ex.Message, ex);
-                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-                //return NotFound(ex.Message);
+                Logger.Log_Error(_logger, this.GetType().FullName, "Eliminar", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
             }
         }
     }

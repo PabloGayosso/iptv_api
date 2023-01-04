@@ -31,6 +31,7 @@ namespace iptv.Servicios.Controllers
         [HttpPost("Autenticar")]
         public async Task<ActionResult<AutenticarTokenDto>> Autenticar(AutenticacionDto autenticacionDto)
         {
+            string Name = null;
             try
             {
                 return Ok(await boAutenticacion.Autenticar(autenticacionDto));
@@ -43,38 +44,34 @@ namespace iptv.Servicios.Controllers
             }
             catch (Exception ex)
             {
+                Logger.Log_Error(_logger, this.GetType().FullName, "Autenticar", ex, configuration);
+                return StatusCode(500, new Exception(Common.Constantes.MSG_CLIENTE));
+            }
+        }
+
+        [EnableCors("MyPolicy")]
+        [HttpGet("GetSerial")]
+        public async Task<ActionResult<SerialDTO>> GetSerial()
+        {
+            try
+            {
+                return Ok(await boAutenticacion.GetSerial());
+            }
+            catch (ExcepcionIptv ex)
+            {
+                var msg = new ExcepcionIptv(ex.ErrorLicencia, ex.Message);
+                _logger.LogWarning(ex.Message);
+                return BadRequest(msg);
+            }
+            catch (Exception ex)
+            {
                 //Guid objGuid = Guid.NewGuid();
                 string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
                 //log.Error(strMensajeError + e.Message, e);
-                Logger.LogError(strMensajeError + ex.Message);
                 _logger.LogError(strMensajeError + ex.Message, ex);
                 return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
                 //return NotFound(ex.Message);
             }
         }
-    [EnableCors("MyPolicy")]
-    [HttpGet("GetSerial")]
-    public async Task<ActionResult<SerialDTO>> GetSerial()
-    {
-      try
-      {
-        return Ok(await boAutenticacion.GetSerial());
-      }
-      catch (ExcepcionIptv ex)
-      {
-        var msg = new ExcepcionIptv(ex.ErrorLicencia, ex.Message);
-        _logger.LogWarning(ex.Message);
-        return BadRequest(msg);
-      }
-      catch (Exception ex)
-      {
-        //Guid objGuid = Guid.NewGuid();
-        string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
-        //log.Error(strMensajeError + e.Message, e);
-        _logger.LogError(strMensajeError + ex.Message, ex);
-        return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
-        //return NotFound(ex.Message);
-      }
     }
-  }
 }
