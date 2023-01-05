@@ -1,6 +1,6 @@
 ﻿using iptv.AccesoDatos.DTO;
 using iptv.Negocio;
-using iptv.Negocio.Log;
+using iptv.Negocio.LogIPTV;
 using iptv.Negocio.Utilidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;

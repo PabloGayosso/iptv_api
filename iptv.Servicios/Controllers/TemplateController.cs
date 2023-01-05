@@ -11,7 +11,7 @@ using iptv.Negocio;
 using iptv.Negocio.Utilidades;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using iptv.Servicios.Log;
+using iptv.Servicios.LogIPTV;
 
 namespace iptv.Servicios.Controllers
 {

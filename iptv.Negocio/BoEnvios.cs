@@ -2,7 +2,7 @@
 using iptv.AccesoDatos;
 using iptv.AccesoDatos.DTO;
 using iptv.AccesoDatos.Models;
-using iptv.Negocio.Log;
+using iptv.Negocio.LogIPTV;
 using iptv.Negocio.Utilidades;
 using Microsoft.Extensions.Configuration;
 using System;

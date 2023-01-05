@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
-using iptv.Servicios.Log;
+using iptv.Servicios.LogIPTV;
 
 namespace iptv.Servicios.Controllers
 {

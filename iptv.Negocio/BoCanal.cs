@@ -9,7 +9,7 @@ using iptv.Negocio.Utilidades;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using iptv.AccesoDatos.Enum;
-using iptv.Negocio.Log;
+using iptv.Negocio.LogIPTV;
 using System.Globalization;
 
 namespace iptv.Negocio
