@@ -8,5 +8,6 @@ namespace iptv.Servicios.Common
     public class Constantes
     {
         public static string MSG_CLIENTE = "Error al realizar la operación, contacte al administrador del sistema";
+        public static int ACTIVO = 3;
     }
 }

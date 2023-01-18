@@ -163,7 +163,7 @@ namespace iptv.Negocio
                     {
                         case true:
                             await daoIptv.EliminarGrupoReproductor(ID_GRUPO);
-                            if (grupo.reproductores != null && grupo.reproductores.Count > 0)
+                            if (grupo.ID_ESTATUS == Constantes.ACTIVO && grupo.reproductores != null && grupo.reproductores.Count > 0)
                             {
                                 foreach(Reproductor reproductor in grupo.reproductores)
                                 {
@@ -174,7 +174,7 @@ namespace iptv.Negocio
                             }
                             break;
                         case false:
-                            throw new ExcepcionIptv("Fallo alta Reproductor :3");
+                            throw new ExcepcionIptv("Fallo alta Reproductor");
                     }
                     unitOfWork.Commit();
                     return respuesta;
