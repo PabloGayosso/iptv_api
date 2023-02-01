@@ -304,6 +304,8 @@ namespace iptv.Negocio
                                                 var despliegue = await daoIptv.ObtenerParametroIdAsync(contenidos[c].ID_FORMA_DESPLIEGUE);
                                                 var tipoReprescentacion = await daoIptv.ObtenerParametroIdAsync(contenidos[c].ID_TIPO_PRESENTACION);
                                                 var SegundoInicial = (Convert.ToInt32(contenidos[c].INICIO_SEG) + 2);
+                                                LogIPTV.Logger.LogInfo("INI "+ contenidos[c].FEC_INICIO);
+                                                LogIPTV.Logger.LogInfo("FIN " + contenidos[c].FEC_FIN);
                                                 planntillaXML += "      <CONTENIDO"
                                                   //+ " ID_CONTENIDO=\"" + lbContenido[c].getContenido().getIdContenido() + "\""
                                                   //+ " ORDEN=\"" + lbContenido[c].getContenido().getOrden() + "\""

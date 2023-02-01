@@ -15,6 +15,7 @@ namespace iptv.AccesoDatos
         {
             try
             {
+                
                 var respuesta = await conexion.QueryAsync<Contenido>(TextoSql.Contenido.CONSULTACONTENIDOSPORIDCANAL, param: new { ID_CANAL }, transaction: unitOfWork.Transaccion);
                 return respuesta.AsList();
             }

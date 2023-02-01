@@ -86,7 +86,10 @@ namespace iptv.AccesoDatos.TextoSql
         WHERE ID_CANAL=@ID_CANAL)
         ";
         public const string CONSULTACONTENIDOSPORIDCANAL = @"
-        SELECT c.*, TC.RUTA_ALOJAMIENTO AS RUTA_ONLINE, CONVERT(varchar, RP.DURACION,24) AS DURACION, cc.FEC_FIN, cc.FEC_INICIO, cc.INICIO_SEG,
+        SELECT c.*, TC.RUTA_ALOJAMIENTO AS RUTA_ONLINE, CONVERT(varchar, RP.DURACION,24) AS DURACION, 
+        convert(varchar, cc.FEC_FIN, 103) +' '+ convert(varchar, cc.FEC_FIN, 8) as FEC_FIN, 
+        convert(varchar, cc.FEC_INICIO, 103) +' '+ convert(varchar, cc.FEC_INICIO, 8) as FEC_INICIO,
+        cc.INICIO_SEG,
         cc.INICIO_MIN, cc.INICIO_HRS, cc.FIN_SEG, cc.FIN_MIN, cc.FIN_HRS
         FROM TV_D_CONTENIDO c
         LEFT JOIN TV_R_CANAL_CONTENIDO cc
