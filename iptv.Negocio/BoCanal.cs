@@ -248,5 +248,19 @@ namespace iptv.Negocio
                 }
             }
         }
+        public class BOCanal : IBOCanal
+        {
+            private readonly IDaoIptv _dao;
+
+            public BOCanal(IDaoIptv dao)
+            {
+                _dao = dao;
+            }
+
+            public async Task EliminarCanalAsync(int canalId)
+            {
+                await _dao.EliminarCanalConRelacionesAsync(canalId);
+            }
+        }
     }
 }

@@ -18,5 +18,7 @@ namespace iptv.Negocio
         Task<ConsultaTemplateDto> ConsultaTemplateDicrecto(string Busqueda, int Pagina, int RegistroPorPagina);
         Task<int> GenerarXML(int ID_TEMPLATE, int ID_REPRODUCTOR, string ruta);
         Task<int> PreviewTemplate(int ID_TEMPLATE);
+        Task EliminarTemplateAsync(int templateId);
+
     }
 }

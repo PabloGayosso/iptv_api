@@ -15,5 +15,7 @@ namespace iptv.Negocio
         Task<int> ActulizaCanal(int ID_CANAL, AltaCanalDto canalDto);
         Task<List<CanalDto>> CanalesActivos();
         Task<int> CambioContenidoCanal(AltaCanalDto canalDto);
+        Task EliminarCanalAsync(int canalId);
+
     }
 }

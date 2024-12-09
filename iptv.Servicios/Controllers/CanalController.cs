@@ -169,5 +169,49 @@ namespace iptv.Servicios.Controllers
                 //return NotFound(ex.Message);
             }
         }
+        [Authorize]
+        [EnableCors("MyPolicy")]
+        [HttpDelete("EliminarCanal/{ID_CANAL:int}")]
+        public async Task<ActionResult<bool>> DeleteChannel(int ID_CANAL)
+        {
+            try
+            {
+                await boCanal.EliminarCanalAsync(ID_CANAL);
+                return Ok($"Canal con ID {ID_CANAL} eliminado junto con sus relaciones.");
+            }
+            catch (ExcepcionIptv ex)
+            {
+                _logger.LogWarning(ex.Message);
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
+                _logger.LogError(strMensajeError + ex.Message, ex);
+                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
+            }
+        }
+        [Authorize]
+        [EnableCors("MyPolicy")]
+        [HttpDelete("EliminarTemplate/{ID_TEMPLATE:int}")]
+        public async Task<ActionResult<bool>> DeleteTemplate(int ID_TEMPLATE)
+        {
+            try
+            {
+                await boTemplate.EliminarTemplateAsync(ID_TEMPLATE);
+                return Ok($"Template con ID {ID_TEMPLATE} eliminado junto con sus relaciones.");
+            }
+            catch (ExcepcionIptv ex)
+            {
+                _logger.LogWarning(ex.Message);
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                string strMensajeError = "Error en: " + this.GetType().FullName + "-" + System.Reflection.MethodBase.GetCurrentMethod().Name + " : ";
+                _logger.LogError(strMensajeError + ex.Message, ex);
+                return NotFound(new Exception("Error al realizar la operación, contacte al administrador del sistema"));
+            }
+        }
     }
 }

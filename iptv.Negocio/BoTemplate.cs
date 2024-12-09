@@ -473,5 +473,19 @@ namespace iptv.Negocio
                 }
             }
         }
+        public class BOTemplates : IBOTemplates
+        {
+            private readonly IDaoIptv _dao;
+
+            public BOTemplates(IDaoIptv dao)
+            {
+                _dao = dao;
+            }
+
+            public async Task EliminarTemplateAsync(int templateId)
+            {
+                await _dao.EliminarTemplateConRelacionesAsync(templateId);
+            }
+        }
     }
 }

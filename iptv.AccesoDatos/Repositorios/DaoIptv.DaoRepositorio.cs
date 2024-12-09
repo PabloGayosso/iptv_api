@@ -145,5 +145,68 @@ namespace iptv.AccesoDatos
                 throw;
             }
         }
+        public async Task<int> EliminarCanalConRelacionesAsync(int canalId)
+        {
+            try
+            {
+                // Eliminar relaciones en TV_R_CANAL_CONTENIDO
+                await conexion.ExecuteAsync(
+                    "DELETE FROM TV_R_CANAL_CONTENIDO WHERE ID_CANAL = @CanalId",
+                    new { CanalId = canalId },
+                    commandType: CommandType.Text,
+                    transaction: unitOfWork.Transaccion
+                );
+
+                // Eliminar relaciones en TV_R_TEMPLATE_CANAL
+                await conexion.ExecuteAsync(
+                    "DELETE FROM TV_R_TEMPLATE_CANAL WHERE ID_CANAL = @CanalId",
+                    new { CanalId = canalId },
+                    commandType: CommandType.Text,
+                    transaction: unitOfWork.Transaccion
+                );
+
+                // Llamar al procedimiento para eliminar el canal
+                var resultado = await conexion.ExecuteAsync(
+                    "EXEC SPD_TV_D_CANAL @ID_CANAL",
+                    new { ID_CANAL = canalId },
+                    commandType: CommandType.StoredProcedure,
+                    transaction: unitOfWork.Transaccion
+                );
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<int> EliminarTemplateConRelacionesAsync(int templateId)
+{
+    try
+    {
+        // Eliminar relaciones en TV_R_TEMPLATE_CANAL
+        await conexion.ExecuteAsync(
+            "DELETE FROM TV_R_TEMPLATE_CANAL WHERE ID_TEMPLATE = @TemplateId",
+            new { TemplateId = templateId },
+            commandType: CommandType.Text,
+            transaction: unitOfWork.Transaccion
+        );
+
+        // Llamar al procedimiento existente para eliminar la plantilla
+        var resultado = await conexion.ExecuteAsync(
+            "EXEC SPD_TV_D_TEMPLATES @ID_TEMPLATE",
+            new { ID_TEMPLATE = templateId },
+            commandType: CommandType.StoredProcedure,
+            transaction: unitOfWork.Transaccion
+        );
+
+        return resultado;
+    }
+    catch (Exception ex)
+    {
+        throw;
+    }
+}
+
     }
 }

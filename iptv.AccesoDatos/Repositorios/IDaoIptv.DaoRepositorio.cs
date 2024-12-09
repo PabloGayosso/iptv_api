@@ -16,6 +16,9 @@ namespace iptv.AccesoDatos.Repositorios
         Task<List<Repositorio>> ConsultaRepositorioContenidoAsync(int ID_TIPO_CONTENIDO);
         Task<RepositorioDLNA> ContultarCatalogoRepositorioNombreAsync(string NOMBRE);
         Task<int> EliminarCatalogoRepositorioAsync(int ID_REPOSITORIO, string NOMBRE);
-        Task<RepositorioDLNA> ConsultaCatalogoRepositorioAsync(int ID_REPOSITORIO); 
+        Task<RepositorioDLNA> ConsultaCatalogoRepositorioAsync(int ID_REPOSITORIO);
+        Task<int> EliminarCanalConRelacionesAsync(int canalId);
+        Task<int> EliminarTemplateConRelacionesAsync(int templateId);
+
     }
 }
